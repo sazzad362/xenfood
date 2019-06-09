@@ -1,0 +1,123 @@
+#header{
+	background-color: $mainbg;
+	.logo{
+		text-align: center;
+		padding-top: 15px;
+		img{
+			max-width: 145px;
+		}
+	}
+	.food_links{
+		ul{
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			li{
+				list-style: none;
+				display: inline-block;
+				margin-left: 25px;
+				a{
+					padding: 2em 0;
+					color: white;
+					font-size: 1em;
+					line-height: 2.813em;
+					display: block;
+					i{
+						font-size:2.813em;
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+	}
+}
+
+#banner{
+	.banner{
+		background: url(../images/banner.jpg) no-repeat center center fixed; 
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		min-height: 450px;
+	}
+}
+
+#offer{
+	padding:40px 0;
+	.offer_one{
+		overflow: hidden;
+		img{
+			transition: 0.5s;
+			&:hover{
+				transform: scale(1.04) translateZ(0);
+			}
+		}
+	}
+}
+
+#products{
+	padding:40px 0;
+}
+
+#services{
+	padding:65px 0 80px 0;
+	.feature-icon{
+		text-align: center;
+		i{
+			font-size: 5.056em;
+			color:#bdbdbd;
+		}
+	}
+	.feature-label{
+		text-align: center;
+		h4{
+			padding: 15px 0;
+			color:#2d2b2d;
+			margin-bottom: 0;
+		}
+		p{
+			color: #71706c;
+			line-height: 1.6;
+		}
+	}
+}
+
+#footer{
+	background-color: $darkbg;
+	padding: 80px 0 0 0;
+	.news_letter{
+		color:#fff;
+		h4{
+			letter-spacing: 6px;
+		}
+		.sd_form_control{
+			background-color: transparent;
+			background: transparent;
+			border-radius: 0;
+		}
+		.form_area{
+			max-width: 650px;
+			width: 100%;
+			margin-top: 62px;
+			margin: 60px auto 0 auto;
+		}
+		.sd-submit{
+			float: right;
+			transform: translateY(-55px);
+			padding: 10px 34px;
+		}
+	}
+	.open_hours{
+		margin-top: 30px;
+		clear: both;
+		opacity: 0.4;
+		font-weight: bold;
+		letter-spacing: 4px;
+	}
+	.copy{
+		margin-top: 60px;
+		padding-bottom: 15px;
+		text-align: center;
+	}
+}

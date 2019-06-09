@@ -1,0 +1,77 @@
+$black: #9b959b;
+$white: #fff;
+$mainbg: #C00A27;
+$darkbg: #121618;
+$openSans: 'Open Sans', sans-serif;
+$poppins: 'Poppins', sans-serif;
+
+*{
+	margin: 0;
+	padding: 0;
+}
+body {
+  font-family: $openSans;
+  font-size: 14px;
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $poppins;
+  color: #333333;
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 26px;
+}
+
+h4{
+  font-size: 22px;
+}
+h5{
+  font-size: 18px;
+}
+h6{
+  font-size: 14px;
+}
+
+a {
+  color: $white;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+a:hover {
+  text-decoration: none;
+  color: $black;
+}
+p {
+    font-weight: 400;
+}
+img{
+  width: 100%;
+}
+
+.card.card-cascade.narrower .view.view-cascade {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: -1.25rem;
+}
+
+.card.card-cascade .view.view-cascade {
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    -webkit-border-radius: .25rem;
+    border-radius: .25rem;
+}
+a.waves-effect, a.waves-light {
+    display: inline-block;
+}

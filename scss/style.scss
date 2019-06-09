@@ -1,0 +1,38 @@
+/*------------------------------------------------------------------
+
+  * Template Nam: Bootstrap Stater File
+  * Template UR:  https://sazzad362.com/
+  * Description:  This template for my quick start HTML Project
+  * Author:       Md Sazzad Hossain
+  * Author URI:   https://sazzad362.com/
+  * Version:      1.0.0
+  * Last update:  25-10-2018
+
+ * -----------------------------------------------------------------*
+ *                         TABLE OF CONTENTS                        *
+ * -----------------------------------------------------------------*
+ *
+	00. Plugins;
+	01. base;
+	02. Header;
+	03. Nav;
+	04. Footer;
+ *
+
+ * -----------------------------------------------------------------*
+ *                        Color Codes                               *
+ * -----------------------------------------------------------------*
+
+	$brand_color: #ff5252;
+
+-------------------------------------------------------------------*/
+
+/*
+	=================================
+		@Loaded All Plugins
+		@Sazzad362
+	=================================
+*/
+@import "modules/plugins";
+@import "modules/base";
+@import "modules/all";
