@@ -1,4 +1,19 @@
-<?php include 'inc/header_script.php' ; ?>
+<?php
+
+ include 'inc/header_script.php' ;
+ require_once 'db/class_admin.php';
+
+    $proData      = new dashboard();
+    $query_result = $proData->ViewProduct();
+    
+    //Delete config
+    if (isset($_GET['delete'])) {
+      $id           = $_GET['delete'];
+      $table        = $_GET['table_name'];
+      $delete_id    = $proData->GlobalDelete($id,$table);
+    }
+
+ ?>
 
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -19,46 +34,37 @@
                   <thead>
                     <tr>
                       <th scope="col">SL NO</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Address</th>
-                      <th scope="col">Phone</th>
+                      <th scope="col">title</th>
+                      <th scope="col">price</th>
+                      <th scope="col">category</th>
+                      <th scope="col">Images</th>
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php 
+                      $i = 1;
+                      $table = "product";
+                      while($item = mysqli_fetch_assoc($query_result)){
+                      $id = $item['id'];   
+
+                      $cat_name = $proData->catName($id);
+                      
+                    ?>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Md Sazzad Hossain</td>
-                      <td>Jatrabari, Dhaka, Bangladesh</td>
-                      <td>01234567890</td>
+                      <th scope="row"><?php echo $i++ ?></th>
+                      <td><?php echo $item['title']; ?></td>
+                      <td><?php echo $item['price']; ?></td>
+                      <td><?php echo $cat_name['name']; ?></td>
                       <td>
-                        <a href="" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-trash-o"></i></a>
-                        <a href="" class="btn btn-success waves-effect waves-light btn-sm"><i class="fa fa-pencil"></i></a>
-                        <a href="" class="btn btn-info waves-effect waves-light btn-sm"><i class="fa fa-eye"></i></a>
+                        <a href="" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-picture-o"></i></a>
+                      </td>
+                      <td>
+                        <a href="edit_product.php?edit=<?php echo $id; ?>" class="btn btn-success waves-effect waves-light btn-sm"><i class="fa fa-pencil"></i></a>
+                        <a href="?table_name=<?php echo $table; ?>&delete=<?php echo $id; ?>" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-trash-o"></i></a>
                       </td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Md Saiful Islam</td>
-                      <td>Kollanpur, Dhaka, Bangladesh</td>
-                      <td>01234567890</td>
-                      <td>
-                        <a href="" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-trash-o"></i></a>
-                        <a href="" class="btn btn-success waves-effect waves-light btn-sm"><i class="fa fa-pencil"></i></a>
-                        <a href="" class="btn btn-info waves-effect waves-light btn-sm"><i class="fa fa-eye"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Sanjil Khan Badhon</td>
-                      <td>Agargao, Dhaka, Bangladesh</td>
-                      <td>01234567890</td>
-                      <td>
-                        <a href="" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-trash-o"></i></a>
-                        <a href="" class="btn btn-success waves-effect waves-light btn-sm"><i class="fa fa-pencil"></i></a>
-                        <a href="" class="btn btn-info waves-effect waves-light btn-sm"><i class="fa fa-eye"></i></a>
-                      </td>
-                    </tr>
+                  <?php } ?>
                   </tbody>
                 </table>
                </div>

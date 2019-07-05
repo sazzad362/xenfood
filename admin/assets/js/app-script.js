@@ -55,21 +55,7 @@ $(function () {
 // Inovice add
 
 $(document).ready(function(){
-    //Add Row
-    var i=1;
-    $("#add_row").click(function(){b=i-1;
-        $('#addr'+i).html($('#addr'+b).html());
-        $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
-        i++; 
-    }); 
-
-    // Remove ROW
-    $("#delete_row").click(function(){
-        if(i>1){
-        $("#addr"+(i-1)).html('');
-        i--;
-        }
-        calc();
-    });
+    // Rermove Alert After 4000MS
+    $(".sd_alert").fadeOut(4000);
        
 });

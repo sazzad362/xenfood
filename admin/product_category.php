@@ -1,4 +1,12 @@
-<?php include 'inc/header_script.php' ; ?>
+<?php
+
+ include 'inc/header_script.php' ;
+ require_once 'db/class_admin.php';
+
+    $catData = new dashboard();
+    $query_result = $catData->ViewCategory();
+
+ ?>
 
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -16,54 +24,34 @@
           <div class="card">
             <div class="card-body">
               <div class="d-flex justify-content-between mb-4">
-                <h5 class="card-title">Product List</h5>
-                <a href="#" class="btn btn-sm btn-success">+</a>
+                <h5 class="card-title">Category List</h5>
+                <a href="category_add.php" class="btn btn-sm btn-success">+</a>
               </div>
                <div class="table-responsive">
-                <table class="table table-bordered text-center">
+                <table class="table table-bordered">
                   <thead>
                     <tr>
                       <th scope="col">SL NO</th>
                       <th scope="col">Name</th>
-                      <th scope="col">Address</th>
-                      <th scope="col">Phone</th>
                       <th scope="col">Action</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php 
+                      $i = 1;
+                      $table = "category";
+                      while($catinfo = mysqli_fetch_assoc($query_result)){
+                      $id = $catinfo['id'];                                         
+                    ?>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Md Sazzad Hossain</td>
-                      <td>Jatrabari, Dhaka, Bangladesh</td>
-                      <td>01234567890</td>
-                      <td>
+                      <th scope="row"><?php echo $i++ ?></th>
+                      <td><?php echo $catinfo['name']; ?></td>
+                      <td class="text-center">
                         <a href="" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-trash-o"></i></a>
                         <a href="" class="btn btn-success waves-effect waves-light btn-sm"><i class="fa fa-pencil"></i></a>
-                        <a href="" class="btn btn-info waves-effect waves-light btn-sm"><i class="fa fa-eye"></i></a>
                       </td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Md Saiful Islam</td>
-                      <td>Kollanpur, Dhaka, Bangladesh</td>
-                      <td>01234567890</td>
-                      <td>
-                        <a href="" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-trash-o"></i></a>
-                        <a href="" class="btn btn-success waves-effect waves-light btn-sm"><i class="fa fa-pencil"></i></a>
-                        <a href="" class="btn btn-info waves-effect waves-light btn-sm"><i class="fa fa-eye"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Sanjil Khan Badhon</td>
-                      <td>Agargao, Dhaka, Bangladesh</td>
-                      <td>01234567890</td>
-                      <td>
-                        <a href="" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-trash-o"></i></a>
-                        <a href="" class="btn btn-success waves-effect waves-light btn-sm"><i class="fa fa-pencil"></i></a>
-                        <a href="" class="btn btn-info waves-effect waves-light btn-sm"><i class="fa fa-eye"></i></a>
-                      </td>
-                    </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
                </div>
