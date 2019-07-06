@@ -34,6 +34,7 @@
                   <thead>
                     <tr>
                       <th scope="col">SL NO</th>
+                      <th scope="col">Thumb</th>
                       <th scope="col">title</th>
                       <th scope="col">price</th>
                       <th scope="col">category</th>
@@ -53,11 +54,21 @@
                     ?>
                     <tr>
                       <th scope="row"><?php echo $i++ ?></th>
+                      <td width="100px">
+                        <?php 
+                          if (!empty($item['thumb'])) {
+                            ?>
+                              <img src="uploads/<?php echo $item['thumb']; ?>" alt="<?php echo $item['thumb']; ?>" style="width:100px;">
+                        <?php
+                          }else { echo "------"; }
+                        ?>
+                        
+                      </td>
                       <td><?php echo $item['title']; ?></td>
                       <td><?php echo $item['price']; ?></td>
                       <td><?php echo $cat_name['name']; ?></td>
                       <td>
-                        <a href="" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-picture-o"></i></a>
+                        <a href="product_img.php?id=<?php echo $id; ?>" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-picture-o"></i></a>
                       </td>
                       <td>
                         <a href="edit_product.php?edit=<?php echo $id; ?>" class="btn btn-success waves-effect waves-light btn-sm"><i class="fa fa-pencil"></i></a>

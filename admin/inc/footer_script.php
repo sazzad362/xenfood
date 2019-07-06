@@ -9,6 +9,14 @@
   <script src="assets/js/waves.js"></script>
   <!-- sidebar-menu js -->
   <script src="assets/js/sidebar-menu.js"></script>
+  
+  
+  <!-- For Coper -->
+  <script src="assets_croper/js/cropper.min.js"></script>
+  <script src="assets_croper/js/exif.js"></script>
+  <script src="assets_croper/js/ImageUploader.js"></script>
+  <script src="assets_croper/js/script.js"></script>
+  
   <!-- Custom scripts -->
   <script src="assets/js/app-script.js"></script>
   

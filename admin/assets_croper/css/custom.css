@@ -1,0 +1,35 @@
+.step2, .error {
+	display: none;
+}
+.loading {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff url("../images/loading.gif") no-repeat center center;
+  opacity: .75;
+  filter: alpha(opacity=75);
+  z-index: 20140628;
+}
+
+form#upload_form {
+    background: #f1f1f1;
+    padding: 45px 0 46px 0;
+    width: 100%;
+    max-width: 650px;
+    margin: 15px auto;
+    box-shadow: 4px 1px 7px 1px #ddd;
+}
+
+.ccontainer{
+  margin: 15px 0;
+}
+.up_image_sn{
+  margin-top: 15px;
+}
+
+.up_image_sn .sd_btn{
+   width: 100%;
+}

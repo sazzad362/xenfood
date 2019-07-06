@@ -23,6 +23,9 @@
   <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
   <!-- Sidebar CSS-->
   <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
+  <!-- For Croper -->
+  <link rel="stylesheet" href="assets_croper/css/cropper.min.css" type="text/css" />
+  <link rel="stylesheet" href="assets_croper/css/custom.css" type="text/css" />
   <!-- Custom Style-->
   <link href="assets/css/app-style.css" rel="stylesheet"/>
   

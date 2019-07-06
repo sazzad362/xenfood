@@ -6,6 +6,13 @@
     $catData = new dashboard();
     $query_result = $catData->ViewCategory();
 
+    //Delete config
+    if (isset($_GET['delete'])) {
+      $id           = $_GET['delete'];
+      $table        = $_GET['table_name'];
+      $delete_id    = $catData->GlobalDelete($id,$table);
+    }
+
  ?>
 
 <!-- Start wrapper-->
@@ -47,8 +54,8 @@
                       <th scope="row"><?php echo $i++ ?></th>
                       <td><?php echo $catinfo['name']; ?></td>
                       <td class="text-center">
-                        <a href="" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-trash-o"></i></a>
-                        <a href="" class="btn btn-success waves-effect waves-light btn-sm"><i class="fa fa-pencil"></i></a>
+                        <a href="edit_category.php?edit=<?php echo $id; ?>" class="btn btn-danger waves-effect waves-light btn-sm"><i class="fa fa-pencil"></i></a>
+                        <a href="?table_name=<?php echo $table; ?>&delete=<?php echo $id; ?>" class="btn btn-success waves-effect waves-light btn-sm"><i class="fa fa-trash-o"></i></a>
                       </td>
                     </tr>
                     <?php } ?>

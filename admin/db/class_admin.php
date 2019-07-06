@@ -146,5 +146,38 @@ class dashboard{
         <?php }
 	}
 
+	// Product Edit
+	public function getcategory($id)
+	{
+		//Get data from database
+        $sql = "SELECT * FROM `category` WHERE `id` = $id";
+        $result = mysqli_query($this->dbcon(), $sql);
+        if ($result) {
+            $query_result = $result;
+            return $query_result;
+        } else {
+            echo "Something went wrong";
+        }
+	}
+
+	// Category update
+	public function category_update($data)
+	{
+		//Get data from HTML form data
+		$cat_name    = mysqli_real_escape_string($this->dbcon(), $data['cat_name']);
+		$id       = mysqli_real_escape_string($this->dbcon(), $data['edit_id']);
+
+		//Insert into database
+		$sql = "UPDATE `category` SET `name` = '$cat_name' WHERE `category`.`id` = $id";
+		$update = mysqli_query($this->dbcon(), $sql);
+	        if ($update) {
+				$message = "Info save successfully";
+	            return $message;
+	        } else {
+	           $message = "Something went wrong";
+	           return $message;
+	        }
+	}
+
 }
 ?>
