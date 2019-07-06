@@ -360,6 +360,22 @@ a.waves-effect, a.waves-light {
   color: #9b959b;
 }
 
+/*======================
+	Login Registration*/
+.sd_login {
+  width: 100%;
+  max-width: 650px;
+  margin: 25px auto;
+  background-color: #f8f8f8;
+  padding: 25px;
+  box-shadow: 1px 2px 9px 5px #00000036;
+  border-radius: 10px;
+}
+.sd_login .btn {
+  margin: 0 !important;
+  padding: .5rem 1.14rem !important;
+}
+
 /* =================
  	Responsive =====*/
 @media screen and (max-width: 768px) {
@@ -383,5 +399,3 @@ a.waves-effect, a.waves-light {
     font-size: 20px !important;
   }
 }
-
-/*# sourceMappingURL=style.css.map */
