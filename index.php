@@ -1,6 +1,10 @@
 <?php 
+	
+	error_reporting(0);
+
 	include 'inc/header_script.php';
 	include 'inc/menu.php';
+	include 'seasson.php';
 
 	$extend      = new front();
     $query_result = $extend->product_list();

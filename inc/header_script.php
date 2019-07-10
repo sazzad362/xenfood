@@ -28,4 +28,6 @@
 <!-- =========================
     Get Front end controller 
     ==========================-->
-<?php require_once 'admin/db/class_front.php'; ?>
+<?php 
+  require_once 'admin/db/class_front.php';
+?>
