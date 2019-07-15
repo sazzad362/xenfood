@@ -14,10 +14,11 @@
   }
 
   //Others information
-  $extend = new dashboard();
+  $extend     = new dashboard();
+  
   // Single data view Query
   $cat_single = $extend->getcategory($id); 
-  $cat_info = mysqli_fetch_assoc($cat_single);
+  $cat_info   = mysqli_fetch_assoc($cat_single);
 
  ?>
 

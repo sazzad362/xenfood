@@ -10,7 +10,7 @@
 	require_once 'admin/db/class_front.php';
 
 	$extend       = new front();
-	$query_result = $extend->ViewOrder($ses_username);
+	$query_result = $extend->all_order($ses_username);
 
 ?>
 
@@ -62,6 +62,8 @@
 				      <td><?php 
 				      	if ($order['status'] == 0) {
 				      		echo "Processing";
+				      	}else{
+				      		echo "Completed";
 				      	}
 				      ?></td>
 				      <td><?php echo $order['created_at']; ?></td>

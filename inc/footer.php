@@ -30,18 +30,6 @@
 		Footer Section End
 ==================================== -->
 
-<!-- ============
-	Cart Area ====-->
-	<div class="cart text-center">
-		<div class="my_ac">
-			<a href="#"><i class="fa fa-user mr-2" aria-hidden="true"></i> My Account</a>
-		</div>
-		<div class="cart_item">
-			<i class="fa fa-cutlery" aria-hidden="true"></i>
-			<span>0 Item</span>
-		</div>
-	</div>
-
     <!--
       ==========================
         Load Plugins File
