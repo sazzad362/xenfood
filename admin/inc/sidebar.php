@@ -21,7 +21,7 @@
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION</li>
       <li>
-        <a href="index.php" class="waves-effect">
+        <a href="dashboard.php" class="waves-effect">
           <i class="icon-home"></i><span>Dashboard</span>
         </a>
       </li>

@@ -1,4 +1,4 @@
-<?php include 'inc/header_script.php' ; ?>
+<?php include 'inc/header_script.php' ;  include 'seasson.php' ;  ?>
 
 <!-- Start wrapper-->
  <div id="wrapper">

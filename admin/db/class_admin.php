@@ -179,5 +179,36 @@ class dashboard{
 	        }
 	}
 
+	/* ================
+		Admin auth == */ 
+
+	public function auth($data){
+		$email       = mysqli_real_escape_string($this->dbcon(), $data['email']);
+		$password    = mysqli_real_escape_string($this->dbcon(), $data['password']);
+		
+		$email_check = "SELECT * FROM `users` WHERE `email` = '$email'";
+		$users       = mysqli_query($this->dbcon(), $email_check);
+
+		$users_array = mysqli_fetch_assoc($users);
+		$user_chk    = mysqli_num_rows($users);
+
+		$dbpass = $users_array['password'];
+
+		if ($user_chk > 0) {
+			if ($dbpass == $password) {
+				session_start();
+				$_SESSION["admin_id"] = $users_array['id'];
+				header('location: dashboard.php?status=1');
+			}else{
+				$message  = "Please check your password.!!";
+				return $message;
+			}
+		}else{
+			$message  = "User not found.!!";
+			return $message;
+		}
+
+	}
+
 }
 ?>

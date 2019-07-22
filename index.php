@@ -78,7 +78,7 @@
 			  $id = $item['id'];   			  
 			?>
 			<div class="col-md-4 mb-4">
-				<div class="card card-cascade narrower">
+				<div class="card card-cascade narrower sd_new_margin">
 				  <!-- Card image -->
 				  <div class="view view-cascade overlay">
 				    <img  class="card-img-top" src="admin/uploads/<?php echo $item['thumb']; ?>" alt="Card image cap">

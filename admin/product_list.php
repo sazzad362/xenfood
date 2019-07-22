@@ -1,6 +1,7 @@
 <?php
 
  include 'inc/header_script.php' ;
+ include 'seasson.php' ; 
  require_once 'db/class_admin.php';
 
     $proData      = new dashboard();
@@ -48,8 +49,9 @@
                       $table = "product";
                       while($item = mysqli_fetch_assoc($query_result)){
                       $id = $item['id'];   
+                      $category = $item['category'];   
 
-                      $cat_name = $proData->catName($id);
+                      $cat_name = $proData->catName($category);
                       
                     ?>
                     <tr>

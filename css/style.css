@@ -214,7 +214,7 @@ a.waves-effect, a.waves-light {
 }
 
 #services {
-  padding: 65px 0 80px 0;
+  padding: 0px 0 80px 0;
 }
 #services .feature-icon {
   text-align: center;
@@ -406,4 +406,9 @@ a.waves-effect, a.waves-light {
   }
 }
 
+.sd_new_margin{
+  margin-bottom: 25px;
+}
+
 /*# sourceMappingURL=style.css.map */
+

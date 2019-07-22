@@ -24,6 +24,21 @@ class front{
         }
 	}
 
+	/*=======================
+		View Product List ==*/
+	public function product_list_cat($cat)
+	{
+		//Get data from database
+        $sql = "SELECT * FROM `product` WHERE `category` = $cat ORDER BY id DESC";
+        $result = mysqli_query($this->dbcon(), $sql);
+        if ($result) {
+            $query_result = $result;
+            return $query_result;
+        } else {
+            echo "Something went wrong";
+        }
+	}
+
 	/*===============================
 		Category name helper ==*/
 	public function catName($id)

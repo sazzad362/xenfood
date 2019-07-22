@@ -1,6 +1,7 @@
 <?php
 
  include 'inc/header_script.php' ;
+ include 'seasson.php' ; 
  require_once 'db/class_admin.php';
 
     $catData = new dashboard();
