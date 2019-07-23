@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2019 at 08:20 PM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- Generation Time: Jul 23, 2019 at 12:50 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -84,7 +86,14 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `pro_id`, `pro_title`, `user_id`, `total`, `qty`, `table_no`, `status`, `created_at`, `created_by`) VALUES
-(1, 8, 'Item Six', 2, '100tk', 1, 5, 0, '2019-07-22 18:05:13', 'sazzad');
+(1, 8, 'Item Six', 2, '100tk', 1, 5, 0, '2019-07-22 18:05:13', 'sazzad'),
+(2, 8, 'Item Six', 3, '400tk', 4, 5, 0, '2019-07-23 05:32:22', 'sazzad'),
+(3, 8, 'Item Six', 3, '100tk', 1, 5, 0, '2019-07-23 05:32:40', 'sazzad'),
+(4, 7, 'Item Five', 3, '975tk', 3, 25, 0, '2019-07-23 05:34:00', 'sazzad'),
+(5, 10, 'item Eight', 3, '340tk', 1, 3, 0, '2019-07-23 05:50:58', 'sazzad'),
+(6, 8, 'Item Six', 7, '300tk', 3, 50, 1, '2019-07-23 06:02:21', 'sazzad'),
+(7, 4, 'item one', 7, '312tk', 2, 3, 1, '2019-07-23 06:02:51', 'sazzad'),
+(8, 8, 'Item Six', 7, '100', 1, 2, 1, '2019-07-23 10:21:27', 'sazzad');
 
 -- --------------------------------------------------------
 
@@ -101,6 +110,16 @@ CREATE TABLE `payment` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `created_by` varchar(191) NOT NULL DEFAULT 'sazzad'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id`, `order_id`, `user_id`, `amount`, `status`, `created_at`, `created_by`) VALUES
+(1, 1, 1, '25', 1, '2019-07-23 07:52:23', 'sazzad'),
+(2, 7, 7, '1200', 1, '2019-07-23 07:59:36', 'sazzad'),
+(3, 6, 7, '300', 1, '2019-07-23 09:13:14', 'sazzad'),
+(4, 8, 7, '100', 1, '2019-07-23 10:49:28', 'sazzad');
 
 -- --------------------------------------------------------
 
@@ -161,7 +180,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `password`, `status`, `points`, `type`, `created_at`, `created_by`) VALUES
-(1, 'Super Admin', 'superadmin', '01675716053', 'superadmin', 1, NULL, 'admin', '2019-07-22 16:56:28', 'sazzad');
+(1, 'Super Admin', 'superadmin', '01675716053', 'superadmin', 1, NULL, 'admin', '2019-07-22 16:56:28', 'sazzad'),
+(2, 'Md Sazzad Hossain', 'sazzad362@gmail.com', '01675716053', '1122', 1, NULL, 'customer', '2019-07-23 04:54:13', 'sazzad'),
+(3, 'Shamima Akter', 'shamima948@gmail.com', '01966092725', '1122', 1, NULL, 'customer', '2019-07-23 05:07:45', 'sazzad'),
+(4, 'Sabbir Rahman Khan', 'officialsabbir@gmail.com', '01944157198', '1122', 1, NULL, 'customer', '2019-07-23 05:08:23', 'sazzad'),
+(5, 'Mohammad Mostofa', 'mostofa.gpi@gmail.com', '01911185576', '1122', 1, NULL, 'customer', '2019-07-23 05:08:55', 'sazzad'),
+(6, 'Asma Akter', 'asma@gmail.com', '01924516578', '1122', 1, NULL, 'customer', '2019-07-23 05:09:26', 'sazzad'),
+(7, 'Mostakim Riad', 'riad@gmail.com', '01725963149', '112', 1, NULL, 'customer', '2019-07-23 05:10:00', 'sazzad');
 
 --
 -- Indexes for dumped tables
@@ -212,31 +237,38 @@ ALTER TABLE `users`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
