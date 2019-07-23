@@ -47,7 +47,7 @@
 								</div>
 								<div class="form-group col-md-6">
 									<label>Total</label>
-									<input name="total_price" type="text" onclick="this.select();" class="form-control" value="<?php echo $total_price; ?>tk" readonly>
+									<input name="total_price" type="text" onclick="this.select();" class="form-control" value="<?php echo $total_price; ?>" readonly>
 								</div>
 							</div>
 							<div class="form-group">

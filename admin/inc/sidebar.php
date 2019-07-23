@@ -42,9 +42,9 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="sidebar-submenu">
-          <li><a href="#"><i class="fa fa-long-arrow-right"></i> All Order</a></li>
-          <li><a href="#"><i class="fa fa-long-arrow-right"></i> Pending Order</a></li>
-          <li><a href="#"><i class="fa fa-long-arrow-right"></i> Complete Order</a></li>
+          <li><a href="order_list_pending.php"><i class="fa fa-long-arrow-right"></i> Pending Order</a></li>
+          <li><a href="order_list_complete.php"><i class="fa fa-long-arrow-right"></i> Complete Order</a></li>
+          <li><a href="order_list.php"><i class="fa fa-long-arrow-right"></i> All Order</a></li>
         </ul>
       </li>
       <li>
@@ -53,7 +53,7 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="sidebar-submenu">
-          <li><a href="#"><i class="fa fa-long-arrow-right"></i> All Customer</a></li>
+          <li><a href="customer_list.php"><i class="fa fa-long-arrow-right"></i> All Customer</a></li>
         </ul>
       </li>
       <li>
@@ -62,7 +62,7 @@
           <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="sidebar-submenu">
-          <li><a href="#"><i class="fa fa-long-arrow-right"></i>All Transactions</a></li>
+          <li><a href="transaction.php"><i class="fa fa-long-arrow-right"></i>All Transactions</a></li>
         </ul>
       </li>
     </ul>

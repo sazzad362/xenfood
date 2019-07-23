@@ -210,5 +210,134 @@ class dashboard{
 
 	}
 
+	/*=======================
+		View users List ==*/
+	public function allUser()
+	{
+		//Get data from database
+        $sql = "SELECT * FROM users ORDER BY id desc";
+        $result = mysqli_query($this->dbcon(), $sql);
+        if ($result) {
+            $query_result = $result;
+            return $query_result;
+        } else {
+            echo "Something went wrong";
+        }
+	}
+
+	/*=======================
+		View All order List ==*/
+
+	public function all_order()
+	{
+		//Get data from database
+        $sql = "SELECT * FROM orders ORDER BY id desc";
+        $result = mysqli_query($this->dbcon(), $sql);
+        if ($result) {
+            $query_result = $result;
+            return $query_result;
+        } else {
+            echo "Something went wrong";
+        }
+	}
+
+	/*===============================
+		user Name name helper ==*/
+	public function user_name($id)
+	{
+		//Get data from database
+		$sql       = "SELECT * FROM users WHERE id = $id";
+		$user_name = mysqli_query($this->dbcon(), $sql);
+		$user_data = mysqli_fetch_assoc($user_name);
+        return $user_data;
+	}
+
+	/*===============================
+		Pending Order List ==*/
+	public function pending_order()
+	{
+		//Get data from database
+        $sql = "SELECT * FROM orders  WHERE status = 0 ORDER BY id desc";
+        $result = mysqli_query($this->dbcon(), $sql);
+        if ($result) {
+            $query_result = $result;
+            return $query_result;
+        } else {
+            echo "Something went wrong";
+        }
+	}
+
+	/*===============================
+		Complete order ==*/
+
+	public function complete_order()
+	{
+		//Get data from database
+        $sql = "SELECT * FROM orders  WHERE status = 1 ORDER BY id desc";
+        $result = mysqli_query($this->dbcon(), $sql);
+        if ($result) {
+            $query_result = $result;
+            return $query_result;
+        } else {
+            echo "Something went wrong";
+        }
+	}
+
+	/*===============================
+		Order Details ==*/
+	public function order_details($id)
+	{
+		//Get data from database
+		$sql       = "SELECT * FROM orders WHERE id = $id";
+		$orders = mysqli_query($this->dbcon(), $sql);
+		$order_details = mysqli_fetch_assoc($orders);
+        return $order_details;
+	}
+	/*===============================
+		Order Status Update ==*/
+	public function order_status($data)
+	{
+		//Get data from HTML form data
+		$order_id = mysqli_real_escape_string($this->dbcon(), $data['order_id']);
+		$user_id  = mysqli_real_escape_string($this->dbcon(), $data['user_id']);
+		$amount   = mysqli_real_escape_string($this->dbcon(), $data['total']);
+
+
+        //Insert into payment Table
+		$sql = "INSERT INTO `payment` (`id`, `order_id`, `user_id`, `amount`, `status`) VALUES (NULL, '$order_id', '$user_id', '$amount', '1')";
+
+		$payment = mysqli_query($this->dbcon(), $sql);
+
+		//Update order status
+		$update = "UPDATE orders SET `status` = '1' WHERE `orders`.`id` = $order_id;";
+
+		$status_update = mysqli_query($this->dbcon(), $update);
+
+        if ($update && $status_update) {
+			$message = "Info save successfully";
+            return $message;
+        } else {
+           $message = "Something went wrong";
+           return $message;
+        }
+
+	}
+
+	/*=======================
+		transaction Data ==*/
+
+	public function transaction()
+	{
+		//Get data from database
+        $sql = "SELECT * FROM payment ORDER BY id desc";
+        $result = mysqli_query($this->dbcon(), $sql);
+        if ($result) {
+            $query_result = $result;
+            return $query_result;
+        } else {
+            echo "Something went wrong";
+        }
+	}
+
 }
 ?>

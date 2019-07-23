@@ -19,7 +19,7 @@
 		<div class="row">
 			<div class="col-md-12 text-center mb-4">
 				<div>
-					<h3>Welcome <b><i>Md Sazzad Hossain</i></b></h3>
+					<h3>Welcome</h3>
 				</div>
 				<div>
 					<a href="logout.php" class="text-danger">Logout</a>
