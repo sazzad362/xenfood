@@ -52,7 +52,17 @@
 							</div>
 							<div class="form-group">
 								<label class="font-weight-bold">Table Number</label>
-								<input name="table_no" type="number" onclick="this.select();" class="form-control" placeholder="Table Number" required autocomplete="OFF">
+								<select class="form-control" name="table_no" required autocomplete="OFF">
+							      <option value="">Select Table</option>
+							      <option>1</option>
+							      <option>2</option>
+							      <option>3</option>
+							      <option>4</option>
+							      <option>5</option>
+							      <option>6</option>
+							      <option>7</option>
+							    </select>
+
 								<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
 							</div>
 					     <button class="btn btn-primary btn-block waves-effect waves-light mt-4" type="submit" name="order" value="Save User">Confirm Order</button>

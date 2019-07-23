@@ -102,7 +102,8 @@ class front{
 			if ($dbpass == $password) {
 				session_start();
 				$_SESSION["id"] = $users_array['id'];
-				header('location: profile.php?status=1');
+				//header('location: profile.php?status=1');
+				echo "<script>location.replace('profile.php?status=1')</script>";
 			}else{
 				$message  = "Please check your password.!!";
 				return $message;
@@ -143,10 +144,12 @@ class front{
 		$order = mysqli_query($this->dbcon(), $sql);
 
         if ($order) {
-           header("Location: profile.php?ost=1");
+           //header("Location: profile.php?ost=1");
+           echo "<script>location.replace('profile.php?status=1')</script>";
 			exit;
         } else {
-            header("Location: profile.php?ost=0");
+           //header("Location: profile.php?ost=0");
+        	echo "<script>location.replace('profile.php?status=0')</script>";
 			exit;
         }       
 		

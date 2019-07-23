@@ -133,12 +133,9 @@ class dashboard{
         $sql = "DELETE FROM `$table` WHERE id = '$id'";
             $result = mysqli_query($this->dbcon(), $sql);
         if ($result) {
-           function goback()
-		{
-			header("Location: {$_SERVER['HTTP_REFERER']}" );
-			exit;
-		}
-	goback();
+              $location = $_SERVER['HTTP_REFERER'];
+			echo "<script>location.replace('$location')</script>";
+	
         } else { ?>
             <script>
             	alert("Can't Delete Data Try agian later");
@@ -198,7 +195,7 @@ class dashboard{
 			if ($dbpass == $password) {
 				session_start();
 				$_SESSION["admin_id"] = $users_array['id'];
-				header('location: dashboard.php?status=1');
+				echo "<script>location.replace('dashboard.php')</script>";
 			}else{
 				$message  = "Please check your password.!!";
 				return $message;
