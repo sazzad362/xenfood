@@ -203,6 +203,17 @@ class front{
         }
 	}
 
+	/*===============================
+		user Name name helper ==*/
+	public function user_name($id)
+	{
+		//Get data from database
+		$sql       = "SELECT * FROM users WHERE id = $id";
+		$user_name = mysqli_query($this->dbcon(), $sql);
+		$user_data = mysqli_fetch_assoc($user_name);
+        return $user_data;
+	}
+
 	
 }
 ?>

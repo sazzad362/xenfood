@@ -29,7 +29,7 @@
             <div class="card-body">
               <h5 class="card-title">Pending Order</h5>
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="default-datatable">
                       <thead>
                         <tr class="text-center">
                           <th scope="col">#</th>
@@ -60,7 +60,12 @@
                           <td class="text-center"><?php echo $item['qty']; ?></td>
                           <td class="text-center"><?php echo $item['total']; ?></td>
                           <td class="text-center"><?php echo $item['table_no']; ?></td>
-                          <td><?php echo $item['created_at']; ?></td>
+                          <td>
+                            <?php 
+                              $create_date = $item['created_at'];
+                              echo $timeStamp = date( "d-m-Y h:i:sa", strtotime($create_date));
+                            ?>    
+                          </td>
                           <td class="text-center">
                           <?php echo $user_name['name']; ?>
                               

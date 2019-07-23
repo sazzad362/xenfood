@@ -16,7 +16,10 @@
   <script src="assets_croper/js/exif.js"></script>
   <script src="assets_croper/js/ImageUploader.js"></script>
   <script src="assets_croper/js/script.js"></script>
-  
+
+   <!-- For dataTables -->
+  <script src="assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js"></script>
+
   <!-- Custom scripts -->
   <script src="assets/js/app-script.js"></script>
   

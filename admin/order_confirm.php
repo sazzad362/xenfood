@@ -34,7 +34,12 @@
       <div class="row">
         <div class="col-lg-12">
           <?php if ( !empty($message) ): ?>
-            <p class="bg-success text-white p-3 sd_alert"> <?php echo "$message"; ?></p>
+            <p class="bg-success text-white p-3 sd_alert"> <?php echo "$message"; ?>. Redirecting to Listing Page...</p>
+            <script>
+             setTimeout(function(){
+                window.location.href = 'order_list.php';
+             }, 3000);
+          </script>
           <?php endif ?>
 
            <div class="card mt-4">

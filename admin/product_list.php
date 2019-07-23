@@ -31,7 +31,7 @@
             <div class="card-body">
               <h5 class="card-title">Product List</h5>
                <div class="table-responsive">
-                <table class="table table-bordered text-center">
+               <table class="table table-bordered" id="default-datatable">
                   <thead>
                     <tr>
                       <th scope="col">SL NO</th>

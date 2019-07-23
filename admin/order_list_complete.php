@@ -29,7 +29,7 @@
             <div class="card-body">
               <h5 class="card-title">Completed Order</h5>
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                   <table class="table table-bordered" id="default-datatable">
                       <thead>
                         <tr class="text-center">
                           <th scope="col">#</th>
@@ -39,7 +39,6 @@
                           <th scope="col">Table No</th>
                           <th scope="col">Order At</th>
                           <th scope="col">Order By</th>
-                          <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -60,15 +59,15 @@
                           <td class="text-center"><?php echo $item['qty']; ?></td>
                           <td class="text-center"><?php echo $item['total']; ?></td>
                           <td class="text-center"><?php echo $item['table_no']; ?></td>
-                          <td><?php echo $item['created_at']; ?></td>
+                          <td>
+                            <?php 
+                              $create_date = $item['created_at'];
+                              echo $timeStamp = date( "d-m-Y h:i:sa", strtotime($create_date));
+                            ?>    
+                          </td>
                           <td class="text-center">
                           <?php echo $user_name['name']; ?>
                               
-                          </td>
-                          <td>
-                            <a href="#" class="btn btn-success btn-sm">
-                              <i aria-hidden="true" class="fa fa-eye"></i>
-                            </a>
                           </td>
                         </tr>
                          <?php } ?>

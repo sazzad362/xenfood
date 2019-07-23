@@ -215,7 +215,7 @@ class dashboard{
 	public function allUser()
 	{
 		//Get data from database
-        $sql = "SELECT * FROM users ORDER BY id desc";
+        $sql = "SELECT * FROM users WHERE type = 'customer' ORDER BY id desc";
         $result = mysqli_query($this->dbcon(), $sql);
         if ($result) {
             $query_result = $result;
@@ -337,6 +337,49 @@ class dashboard{
         } else {
             echo "Something went wrong";
         }
+	}
+
+	/*=======================
+		For Dashboard ==*/
+
+	public function recent_order()
+	{
+		//Get data from database
+        $sql = "SELECT * FROM orders where status = 0 ORDER BY id desc LIMIT 20";
+        $result = mysqli_query($this->dbcon(), $sql);
+        if ($result) {
+            $query_result = $result;
+            return $query_result;
+        } else {
+            echo "Something went wrong";
+        }
+	}
+	public function count_pending_order()
+	{
+		$datas = "SELECT * FROM `orders` WHERE status = 0";
+        $pending_data = mysqli_query($this->dbcon(), $datas);
+
+        $pending_rows = mysqli_num_rows($pending_data);
+
+        return $pending_rows;
+	}
+	public function count_complete_order()
+	{
+		$datas = "SELECT * FROM `orders` WHERE status = 1";
+        $complete_data = mysqli_query($this->dbcon(), $datas);
+
+        $complete_rows = mysqli_num_rows($complete_data);
+
+        return $complete_rows;
+	}
+	public function customer_count()
+	{
+		$datas = "SELECT * FROM `users` WHERE type = 'customer'";
+        $customer = mysqli_query($this->dbcon(), $datas);
+
+        $customer_count = mysqli_num_rows($customer);
+
+        return $customer_count;
 	}
 
 }

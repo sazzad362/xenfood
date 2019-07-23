@@ -410,5 +410,16 @@ a.waves-effect, a.waves-light {
   margin-bottom: 25px;
 }
 
+.sa_profile {
+    background: #f7f7f7;
+    padding: 41px;
+    text-align: center;
+}
+
+.sa_profile a{
+  color: #f00;
+}
+
+
 /*# sourceMappingURL=style.css.map */
 

@@ -57,5 +57,6 @@ $(function () {
 $(document).ready(function(){
     // Rermove Alert After 4000MS
     $(".sd_alert").fadeOut(4000);
+    $('#default-datatable').DataTable();
        
 });

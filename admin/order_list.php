@@ -29,7 +29,7 @@
             <div class="card-body">
               <h5 class="card-title">All Order</h5>
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                   <table class="table table-bordered" id="default-datatable">
                       <thead>
                         <tr class="text-center">
                           <th scope="col">#</th>
@@ -49,19 +49,31 @@
                           while($item = mysqli_fetch_assoc($query_result)){
                           $id = $item['id'];   
                           $i++;
-                          
                           $user_id = $item['user_id'];
-
                           $user_name = $extend->user_name($user_id);
+                          $status = $item['status'];
                         ?>
-                        <tr>
+                        <tr class="<?php if($status==1) { echo "bg-success text-white"; } ?>">
                           <th scope="row"><?php echo $i; ?></th>
                           <td><?php echo $item['pro_title']; ?></td>
                           <td class="text-center"><?php echo $item['qty']; ?></td>
                           <td class="text-center"><?php echo $item['total']; ?></td>
                           <td class="text-center"><?php echo $item['table_no']; ?></td>
-                          <td><?php echo $item['status']; ?></td>
-                          <td><?php echo $item['created_at']; ?></td>
+                          <td>
+                            <?php 
+                              if ($status == 1) {
+                                echo "Complete";
+                              }else{
+                                echo "Pending";
+                              }
+                            ?>
+                          </td>
+                          <td>
+                            <?php 
+                              $create_date = $item['created_at'];
+                              echo $timeStamp = date( "d-m-Y h:i:sa", strtotime($create_date));
+                            ?>    
+                          </td>
                           <td class="text-center">
                           <?php echo $user_name['name']; ?>
                               

@@ -12,6 +12,8 @@
 	$extend       = new front();
 	$query_result = $extend->ViewOrder($ses_username);
 
+	$count_res = mysqli_num_rows($query_result)
+
 ?>
 
 <section id="products">
@@ -19,7 +21,10 @@
 		<div class="row">
 			<div class="col-md-12 text-center mb-4">
 				<div>
-					<h3>Welcome</h3>
+					<h3>Welcome <strong><i> <?php 
+						$user_name = $extend->user_name($ses_username);
+						echo $user_name['name'];
+					 ?> </i></strong></h3>
 				</div>
 				<div>
 					<a href="logout.php" class="text-danger">Logout</a>
@@ -37,6 +42,13 @@
 				</div>
 			</div><!-- leff md-4 -->
 			<div class="col-md-8 table-responsive">
+				<?php if ($count_res <= 0): ?>
+					<div class="sa_profile">
+						<h4>No active Order</h4>
+						<a href="index.php">Go to shop</a>
+					</div>
+				<?php endif ?>
+				<?php if ($count_res > 0): ?>
 				<table class="table table-bordered text-center">
 				  <thead>
 				    <tr>
@@ -50,6 +62,7 @@
 				  </thead>
 				  <tbody>
 				  	<?php 
+
 				  		$i = 0;
 				  		while($order = mysqli_fetch_assoc($query_result)){
 				  			$i++;
@@ -69,6 +82,7 @@
 				    <?php } ?>
 				  </tbody>
 				</table>
+				<?php endif ?>
 			</div><!-- right md 8 -->
 		</div><!-- End Row -->
 	</div> <!-- End Container  -->

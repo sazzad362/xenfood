@@ -36,7 +36,7 @@
                 <a href="category_add.php" class="btn btn-sm btn-success">+</a>
               </div>
                <div class="table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="default-datatable">
                   <thead>
                     <tr>
                       <th scope="col">SL NO</th>

@@ -29,7 +29,7 @@
             <div class="card-body">
               <h5 class="card-title">Customer List</h5>
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="default-datatable">
                       <thead>
                         <tr class="text-center">
                           <th scope="col">#</th>
@@ -37,7 +37,6 @@
                           <th scope="col">Email</th>
                           <th scope="col">Phone</th>
                           <th scope="col">Status</th>
-                          <th scope="col">Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -59,11 +58,6 @@
                                 echo "Active";
                               }
                             ?>
-                          </td>
-                          <td>
-                            <a href="#" class="btn btn-success btn-sm">
-                              <i aria-hidden="true" class="fa fa-eye"></i>
-                            </a>
                           </td>
                         </tr>
                          <?php } ?>

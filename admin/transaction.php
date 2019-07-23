@@ -82,8 +82,13 @@
                           <th scope="row"><?php echo $i; ?></th>
                           <td><?php echo $item['order_id'] ?></td>
                           <td><?php echo $user_name['name']; ?></td>
-                          <td><?php echo $item['created_at'] ?></td>
-                          <td><?php echo $item['amount'] ?></td>
+                          <td>
+                            <?php 
+                              $create_date = $item['created_at'];
+                              echo $timeStamp = date( "d-m-Y h:i:sa", strtotime($create_date));
+                            ?>    
+                          </td>
+                          <td><?php echo number_format($item['amount']) ?> Tk</td>
                         </tr>
                          <?php } ?>
                       </tbody>

@@ -1,6 +1,11 @@
 <?php 
   include 'inc/header_script.php' ; 
   include 'seasson.php' ; 
+
+  require_once 'db/class_admin.php';
+
+  $extend               = new dashboard();
+  $query_result         = $extend->recent_order();
 ?>
 
 <!-- Start wrapper-->
@@ -16,55 +21,60 @@
       <!--Start Dashboard Content-->
       
       <div class="row mt-4">
-        <div class="col-12 col-lg-6 col-xl-3">
+        <div class="col-md-4">
           <div class="card gradient-purpink">
             <div class="card-body">
+              <a href="customer_list.php">
               <div class="media">
               <div class="media-body text-left">
-                <h4 class="text-white">$4530</h4>
-                <span class="text-white">Revenue</span>
+                <h4 class="text-white">
+                  <?php 
+                    echo $extend->customer_count();
+                  ?>
+                </h4>
+                <span class="text-white">Customers</span>
               </div>
         <div class="align-self-center"><span id="dash-chart-1"><canvas width="81" height="35" style="display: inline-block; width: 81px; height: 35px; vertical-align: top;"></canvas></span></div>
             </div>
+            </a>
             </div>
           </div>
         </div>
-    <div class="col-12 col-lg-6 col-xl-3">
-          <div class="card gradient-scooter">
-            <div class="card-body">
-              <div class="media">
-              <div class="media-body text-left">
-                <h4 class="text-white">2500</h4>
-                <span class="text-white">Total Orders</span>
-              </div>
-        <div class="align-self-center"><span id="dash-chart-2"><canvas width="80" height="40" style="display: inline-block; width: 80px; height: 40px; vertical-align: top;"></canvas></span></div>
-            </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-lg-6 col-xl-3">
+        <div class="col-md-4">
           <div class="card gradient-ibiza">
             <div class="card-body">
+              <a href="order_list_pending.php">
               <div class="media">
         <div class="media-body text-left">
-                <h4 class="text-white">7850</h4>
-                <span class="text-white">Comments</span>
+                <h4 class="text-white">
+                  <?php 
+                    echo $extend->count_pending_order();
+                  ?>
+                </h4>
+                <span class="text-white">Pending Orders</span>
               </div>
                <div class="align-self-center"><span id="dash-chart-3"><canvas width="75" height="40" style="display: inline-block; width: 75px; height: 40px; vertical-align: top;"></canvas></span></div>
             </div>
+          </a>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-6 col-xl-3">
+        <div class="col-md-4">
           <div class="card gradient-ohhappiness">
             <div class="card-body">
+              <a href="order_list_complete.php">
               <div class="media">
               <div class="media-body text-left">
-                <h4 class="text-white">3524</h4>
-                <span class="text-white">Total Views</span>
+                <h4 class="text-white">
+                  <?php 
+                    echo $extend->count_complete_order();
+                  ?>
+                </h4>
+                <span class="text-white">Complete Orders</span>
               </div>
         <div class="align-self-center"><span id="dash-chart-4"><canvas width="100" height="25" style="display: inline-block; width: 100px; height: 25px; vertical-align: top;"></canvas></span></div>
             </div>
+            </a>
             </div>
           </div>
         </div>
@@ -77,30 +87,58 @@
             <div class="card-body">
               <h5 class="card-title">Recent Order</h5>
                 <div class="table-responsive">
-                    <table class="table table-bordered text-center">
+                    <table class="table table-bordered">
                       <thead>
-                        <tr>
+                        <tr class="text-center">
                           <th scope="col">#</th>
-                          <th scope="col">Product Name</th>
-                          <th scope="col">Price</th>
+                          <th scope="col">Food Name</th>
+                          <th scope="col">Quantity</th>
+                          <th scope="col">Total</th>
+                          <th scope="col">Table No</th>
                           <th scope="col">Status</th>
-                          <th scope="col">Action</th>
+                          <th scope="col">Order At</th>
+                          <th scope="col">Order By</th>
                         </tr>
                       </thead>
                       <tbody>
+                        <?php 
+                          $i = 0;
+                          $table = "orders";
+                          while($item = mysqli_fetch_assoc($query_result)){
+                          $id = $item['id'];   
+                          $i++;
+                          $user_id = $item['user_id'];
+                          $user_name = $extend->user_name($user_id);
+                          $status = $item['status'];
+                        ?>
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Pizza</td>
-                          <td>360</td>
-                          <td>Pending</td>
+                          <th scope="row"><?php echo $i; ?></th>
+                          <td><?php echo $item['pro_title']; ?></td>
+                          <td class="text-center"><?php echo $item['qty']; ?></td>
+                          <td class="text-center"><?php echo $item['total']; ?></td>
+                          <td class="text-center"><?php echo $item['table_no']; ?></td>
                           <td>
-                            <a href="#" class="btn btn-success btn-sm">
-                              <i aria-hidden="true" class="fa fa-eye"></i>
-                            </a>
+                            <?php 
+                              if ($status == 1) {
+                                echo "Complete";
+                              }else{
+                                echo "Pending";
+                              }
+                            ?>
+                          </td>
+                          <td>
+                            <?php 
+                              $create_date = $item['created_at'];
+                              echo $timeStamp = date( "d-m-Y h:i:sa", strtotime($create_date));
+                            ?>    
+                          </td>
+                          <td class="text-center">
+                          <?php echo $user_name['name']; ?>
+                              
                           </td>
                         </tr>
+                         <?php } ?>
                       </tbody>
-                    </table>
                   </div>
             </div>
           </div>
